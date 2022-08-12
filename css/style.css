@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*review*/
 body {
   background-color: rgb(35, 105, 105);
 }
@@ -1116,7 +1117,7 @@ body {
 }
 .card .flip-card-inner {
   animation: rotate ease alternate infinite;
-  animation-duration: 2s;
+  animation-duration: 5s;
 }
 
 #id-1 .flip-card-inner {
