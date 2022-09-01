@@ -3,15 +3,18 @@ body {
 }
 
 .container {
-    min-width: 930px;
-    padding: 0;
+    min-width: 1170px;
+    padding: 0 15px;
     margin: 0 auto;
 }
 
 .game-cards {
+    padding-top: 25px;
+    padding-bottom: 25px;
     display: grid;
-    grid-template-columns: repeat(4, 200px);
-    justify-items: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(6, 120px);
+    column-gap: 15px;
     justify-content: center;
 }
 

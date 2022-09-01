@@ -1,67 +1,390 @@
 @charset "UTF-8";
-/*review*/
+/*review*/ /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 body {
   background-color: rgb(35, 105, 105);
 }
 
 * {
   box-sizing: border-box;
-  line-height: 1;
 }
 
 .container {
-  max-width: 930px;
+  max-width: 1170px;
   padding: 0 15px;
   margin: 0 auto;
 }
 
-.card {
-  margin-bottom: 10px;
-}
-
 .game-cards {
+  padding-top: 25px;
+  padding-bottom: 25px;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-items: center;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 120px);
+  column-gap: 15px;
+  row-gap: 15px;
   justify-content: center;
 }
 
-.hearts {
-  /*7*/
-  /* 8 */
-  /*9*/
-  /*Jack*/
-  /*Queen*/
-  /*King*/
-  /*King*/
+.card {
+  width: 120px;
+  height: 200px;
 }
-.hearts .card {
-  width: 150px;
-  height: 250px;
-}
-.hearts .card__back {
+.card__back {
   display: grid;
-  grid-template-columns: 25px 100px 25px;
-  grid-template-rows: repeat(3, 83px);
+  grid-template-columns: 30px 60px 30px;
+  grid-template-rows: repeat(3, 67px);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-.hearts .card__back .card__back--item-1 {
+.card__back .card__back--item-1 {
   grid-area: 1/1/2/2;
 }
-.hearts .card__back .card__back--item-2 {
+.card__back .card__back--item-2 {
   grid-area: 1/2/4/3;
 }
-.hearts .card__back .card__back--item-3 {
+.card__back .card__back--item-3 {
   grid-area: 3/3/4/4;
 }
-.hearts .card__back--item-1 {
+
+.card__back--item-1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Didact Gothic", sans-serif;
   color: #ffffff;
   font-size: 35px;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+.card__back--item-1::after,
+.card__back--item-3::after {
+  content: "♣";
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.card__back--item-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transform: rotate(180deg);
+  color: #ffffff;
+  font-size: 35px;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+/*6*/
+.card__back--item-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 32px);
+  grid-template-rows: repeat(3, 67px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  color: #ff0000;
+  font-size: 45px;
+  align-items: center;
+  justify-items: center;
+}
+
+.heart-1 {
+  grid-area: 1/1/2/2;
+}
+
+.heart-2 {
+  grid-area: 1/2/2/3;
+}
+
+.heart-3 {
+  grid-area: 2/2/3/3;
+}
+
+.heart-4 {
+  grid-area: 2/1/3/2;
+}
+
+.heart-5 {
+  grid-area: 3/1/4/2;
+}
+
+.heart-6 {
+  grid-area: 3/2/4/3;
+}
+
+/*7*/
+.seven {
+  display: grid;
+  grid-template-columns: repeat(3, 20px);
+  grid-template-rows: repeat(4, 62px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.seven .heart-1 {
+  grid-area: 1/1/2/2;
+}
+.seven .heart-2 {
+  grid-area: 1/3/2/4;
+}
+.seven .heart-3 {
+  grid-area: 2/2/3/3;
+}
+.seven .heart-4 {
+  grid-area: 3/1/4/2;
+}
+.seven .heart-5 {
+  grid-area: 3/3/4/4;
+}
+.seven .heart-6 {
+  grid-area: 4/1/5/2;
+}
+.seven .heart-7 {
+  grid-area: 4/3/5/4;
+}
+.seven .heart-4, .seven .heart-5, .seven .heart-6, .seven .heart-7 {
+  transform: rotate(180deg);
+}
+
+/* 8 */
+.eight {
+  display: grid;
+  grid-template-columns: repeat(2, 32px);
+  grid-template-rows: repeat(4, 62px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.eight .heart-1 {
+  grid-area: 1/1/2/2;
+}
+.eight .heart-2 {
+  grid-area: 1/2/2/3;
+}
+.eight .heart-3 {
+  grid-area: 2/1/3/2;
+}
+.eight .heart-4 {
+  grid-area: 2/2/3/3;
+}
+.eight .heart-5 {
+  grid-area: 3/1/4/2;
+}
+.eight .heart-6 {
+  grid-area: 3/2/4/3;
+}
+.eight .heart-7 {
+  grid-area: 4/1/5/2;
+}
+.eight .heart-8 {
+  grid-area: 4/2/5/3;
+}
+.eight .heart-5, .eight .heart-6, .eight .heart-7, .eight .heart-8 {
+  transform: rotate(180deg);
+}
+
+/*9*/
+.nine {
+  display: grid;
+  grid-template-columns: repeat(3, 20px);
+  grid-template-rows: repeat(5, 35px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+  padding: 10px;
+}
+.nine .heart-1 {
+  grid-area: 1/1/2/2;
+}
+.nine .heart-2 {
+  grid-area: 1/3/2/4;
+}
+.nine .heart-3 {
+  grid-area: 2/2/3/3;
+}
+.nine .heart-4 {
+  grid-area: 3/1/4/2;
+}
+.nine .heart-5 {
+  grid-area: 3/3/4/4;
+}
+.nine .heart-6 {
+  grid-area: 4/3/5/4;
+}
+.nine .heart-7 {
+  grid-area: 4/1/5/2;
+}
+.nine .heart-8 {
+  grid-area: 5/1/6/2;
+}
+.nine .heart-9 {
+  grid-area: 5/3/6/4;
+}
+.nine .heart-6, .nine .heart-7, .nine .heart-8, .nine .heart-9 {
+  transform: rotate(180deg);
+}
+
+.ten {
+  display: grid;
+  grid-template-columns: repeat(3, 20px);
+  grid-template-rows: repeat(6, 30px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+  padding: 10px;
+}
+.ten .heart-1 {
+  grid-area: 1/1/2/2;
+}
+.ten .heart-2 {
+  grid-area: 1/3/2/4;
+}
+.ten .heart-3 {
+  grid-area: 2/2/3/3;
+}
+.ten .heart-4 {
+  grid-area: 3/1/4/2;
+}
+.ten .heart-5 {
+  grid-area: 3/3/4/4;
+}
+.ten .heart-6 {
+  grid-area: 4/3/5/4;
+}
+.ten .heart-7 {
+  grid-area: 4/1/5/2;
+}
+.ten .heart-8 {
+  grid-area: 5/2/6/3;
+}
+.ten .heart-9 {
+  grid-area: 6/1/7/2;
+}
+.ten .heart-10 {
+  grid-area: 6/3/7/4;
+}
+.ten .heart-6, .ten .heart-7, .ten .heart-8, .ten .heart-9, .ten .heart-10 {
+  transform: rotate(180deg);
+}
+
+.id-10 {
+  font-size: 25px;
+}
+
+/*Jack*/
+.jack {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+}
+.jack .heart-1 {
+  font-size: 155px;
+}
+
+/*Queen*/
+.queen {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+}
+.queen .heart-1 {
+  font-size: 155px;
+}
+
+/*King*/
+.king {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+}
+.king .heart-1 {
+  font-size: 155px;
+}
+
+/*King*/
+.ace {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+}
+.ace .heart-1 {
+  font-size: 155px;
+}
+
+.hearts .card__back--item-1 {
+  color: #ffffff;
 }
 .hearts .card__back--item-1::after,
 .hearts .card__back--item-3::after {
@@ -70,268 +393,14 @@ body {
   font-size: 15px;
 }
 .hearts .card__back--item-3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transform: rotate(180deg);
   color: #ffffff;
-  font-family: "Didact Gothic", sans-serif;
-  font-size: 35px;
 }
 .hearts .card__back--item-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   color: #ff0000;
-  font-size: 45px;
-  align-items: center;
-  justify-items: center;
-}
-.hearts .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.hearts .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.hearts .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.hearts .heart-4 {
-  grid-area: 2/1/3/2;
-}
-.hearts .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.hearts .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.hearts .seven {
-  display: grid;
-  grid-template-columns: repeat(3, 33px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.hearts .seven .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.hearts .seven .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.hearts .seven .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.hearts .seven .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.hearts .seven .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.hearts .seven .heart-6 {
-  grid-area: 4/1/5/2;
-}
-.hearts .seven .heart-7 {
-  grid-area: 4/3/5/4;
-}
-.hearts .seven .heart-4, .hearts .seven .heart-5, .hearts .seven .heart-6, .hearts .seven .heart-7 {
-  transform: rotate(180deg);
-}
-.hearts .eight {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.hearts .eight .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.hearts .eight .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.hearts .eight .heart-3 {
-  grid-area: 2/1/3/2;
-}
-.hearts .eight .heart-4 {
-  grid-area: 2/2/3/3;
-}
-.hearts .eight .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.hearts .eight .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.hearts .eight .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.hearts .eight .heart-8 {
-  grid-area: 4/2/5/3;
-}
-.hearts .eight .heart-5, .hearts .eight .heart-6, .hearts .eight .heart-7, .hearts .eight .heart-8 {
-  transform: rotate(180deg);
-}
-.hearts .nine {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(5, 50px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.hearts .nine .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.hearts .nine .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.hearts .nine .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.hearts .nine .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.hearts .nine .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.hearts .nine .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.hearts .nine .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.hearts .nine .heart-8 {
-  grid-area: 5/1/6/2;
-}
-.hearts .nine .heart-9 {
-  grid-area: 5/3/6/4;
-}
-.hearts .nine .heart-6, .hearts .nine .heart-7, .hearts .nine .heart-8, .hearts .nine .heart-9 {
-  transform: rotate(180deg);
-}
-.hearts .ten {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(6, 42px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.hearts .ten .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.hearts .ten .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.hearts .ten .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.hearts .ten .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.hearts .ten .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.hearts .ten .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.hearts .ten .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.hearts .ten .heart-8 {
-  grid-area: 5/2/6/3;
-}
-.hearts .ten .heart-9 {
-  grid-area: 6/1/7/2;
-}
-.hearts .ten .heart-10 {
-  grid-area: 6/3/7/4;
-}
-.hearts .ten .heart-6, .hearts .ten .heart-7, .hearts .ten .heart-8, .hearts .ten .heart-9, .hearts .ten .heart-10 {
-  transform: rotate(180deg);
-}
-.hearts .id-10 {
-  font-size: 25px;
-}
-.hearts .jack {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.hearts .jack .heart-1 {
-  font-size: 155px;
-}
-.hearts .queen {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.hearts .queen .heart-1 {
-  font-size: 155px;
-}
-.hearts .king {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.hearts .king .heart-1 {
-  font-size: 155px;
-}
-.hearts .ace {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.hearts .ace .heart-1 {
-  font-size: 155px;
 }
 
 .club {
-  /*7*/
-  /* 8 */
-  /*9*/
   /*Jack*/
-  /*Queen*/
-  /*King*/
-  /*King*/
-}
-.club .card {
-  width: 150px;
-  height: 250px;
-}
-.club .card__back {
-  display: grid;
-  grid-template-columns: 25px 100px 25px;
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.club .card__back .card__back--item-1 {
-  grid-area: 1/1/2/2;
-}
-.club .card__back .card__back--item-2 {
-  grid-area: 1/2/4/3;
-}
-.club .card__back .card__back--item-3 {
-  grid-area: 3/3/4/4;
-}
-.club .card__back--item-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #ffffff;
-  font-size: 35px;
-  font-family: "Didact Gothic", sans-serif;
 }
 .club .card__back--item-1::after,
 .club .card__back--item-3::after {
@@ -339,188 +408,8 @@ body {
   color: #ffffff;
   font-size: 15px;
 }
-.club .card__back--item-3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transform: rotate(180deg);
-  color: #ffffff;
-  font-size: 35px;
-  font-family: "Didact Gothic", sans-serif;
-}
 .club .card__back--item-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   color: #ff0000;
-  font-size: 45px;
-  align-items: center;
-  justify-items: center;
-}
-.club .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.club .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.club .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.club .heart-4 {
-  grid-area: 2/1/3/2;
-}
-.club .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.club .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.club .seven {
-  display: grid;
-  grid-template-columns: repeat(3, 33px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.club .seven .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.club .seven .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.club .seven .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.club .seven .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.club .seven .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.club .seven .heart-6 {
-  grid-area: 4/1/5/2;
-}
-.club .seven .heart-7 {
-  grid-area: 4/3/5/4;
-}
-.club .seven .heart-4, .club .seven .heart-5, .club .seven .heart-6, .club .seven .heart-7 {
-  transform: rotate(180deg);
-}
-.club .eight {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.club .eight .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.club .eight .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.club .eight .heart-3 {
-  grid-area: 2/1/3/2;
-}
-.club .eight .heart-4 {
-  grid-area: 2/2/3/3;
-}
-.club .eight .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.club .eight .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.club .eight .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.club .eight .heart-8 {
-  grid-area: 4/2/5/3;
-}
-.club .eight .heart-5, .club .eight .heart-6, .club .eight .heart-7, .club .eight .heart-8 {
-  transform: rotate(180deg);
-}
-.club .nine {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(5, 50px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.club .nine .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.club .nine .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.club .nine .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.club .nine .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.club .nine .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.club .nine .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.club .nine .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.club .nine .heart-8 {
-  grid-area: 5/1/6/2;
-}
-.club .nine .heart-9 {
-  grid-area: 5/3/6/4;
-}
-.club .nine .heart-6, .club .nine .heart-7, .club .nine .heart-8, .club .nine .heart-9 {
-  transform: rotate(180deg);
-}
-.club .ten {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(6, 42px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.club .ten .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.club .ten .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.club .ten .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.club .ten .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.club .ten .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.club .ten .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.club .ten .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.club .ten .heart-8 {
-  grid-area: 5/2/6/3;
-}
-.club .ten .heart-9 {
-  grid-area: 6/1/7/2;
-}
-.club .ten .heart-10 {
-  grid-area: 6/3/7/4;
-}
-.club .ten .heart-6, .club .ten .heart-7, .club .ten .heart-8, .club .ten .heart-9, .club .ten .heart-10 {
-  transform: rotate(180deg);
 }
 .club .id-10 {
   font-size: 25px;
@@ -535,73 +424,9 @@ body {
 .club .jack .heart-1 {
   font-size: 155px;
 }
-.club .queen {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.club .queen .heart-1 {
-  font-size: 155px;
-}
-.club .king {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.club .king .heart-1 {
-  font-size: 155px;
-}
-.club .ace {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.club .ace .heart-1 {
-  font-size: 155px;
-}
 
-.pike {
-  /*7*/
-  /* 8 */
-  /*9*/
-  /*Jack*/
-  /*Queen*/
-  /*King*/
-  /*King*/
-}
-.pike .card {
-  width: 150px;
-  height: 250px;
-}
-.pike .card__back {
-  display: grid;
-  grid-template-columns: 25px 100px 25px;
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .card__back .card__back--item-1 {
-  grid-area: 1/1/2/2;
-}
-.pike .card__back .card__back--item-2 {
-  grid-area: 1/2/4/3;
-}
-.pike .card__back .card__back--item-3 {
-  grid-area: 3/3/4/4;
-}
 .pike .card__back--item-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Didact Gothic", sans-serif;
   color: #ffffff;
-  font-size: 35px;
 }
 .pike .card__back--item-1::after,
 .pike .card__back--item-3::after {
@@ -610,268 +435,14 @@ body {
   font-size: 15px;
 }
 .pike .card__back--item-3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transform: rotate(180deg);
-  font-family: "Didact Gothic", sans-serif;
   color: #ffffff;
-  font-size: 35px;
 }
 .pike .card__back--item-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   color: #ff0000;
-  font-size: 45px;
-  align-items: center;
-  justify-items: center;
-}
-.pike .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.pike .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.pike .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.pike .heart-4 {
-  grid-area: 2/1/3/2;
-}
-.pike .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.pike .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.pike .seven {
-  display: grid;
-  grid-template-columns: repeat(3, 33px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .seven .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.pike .seven .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.pike .seven .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.pike .seven .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.pike .seven .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.pike .seven .heart-6 {
-  grid-area: 4/1/5/2;
-}
-.pike .seven .heart-7 {
-  grid-area: 4/3/5/4;
-}
-.pike .seven .heart-4, .pike .seven .heart-5, .pike .seven .heart-6, .pike .seven .heart-7 {
-  transform: rotate(180deg);
-}
-.pike .eight {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .eight .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.pike .eight .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.pike .eight .heart-3 {
-  grid-area: 2/1/3/2;
-}
-.pike .eight .heart-4 {
-  grid-area: 2/2/3/3;
-}
-.pike .eight .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.pike .eight .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.pike .eight .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.pike .eight .heart-8 {
-  grid-area: 4/2/5/3;
-}
-.pike .eight .heart-5, .pike .eight .heart-6, .pike .eight .heart-7, .pike .eight .heart-8 {
-  transform: rotate(180deg);
-}
-.pike .nine {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(5, 50px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.pike .nine .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.pike .nine .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.pike .nine .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.pike .nine .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.pike .nine .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.pike .nine .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.pike .nine .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.pike .nine .heart-8 {
-  grid-area: 5/1/6/2;
-}
-.pike .nine .heart-9 {
-  grid-area: 5/3/6/4;
-}
-.pike .nine .heart-6, .pike .nine .heart-7, .pike .nine .heart-8, .pike .nine .heart-9 {
-  transform: rotate(180deg);
-}
-.pike .ten {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(6, 42px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.pike .ten .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.pike .ten .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.pike .ten .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.pike .ten .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.pike .ten .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.pike .ten .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.pike .ten .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.pike .ten .heart-8 {
-  grid-area: 5/2/6/3;
-}
-.pike .ten .heart-9 {
-  grid-area: 6/1/7/2;
-}
-.pike .ten .heart-10 {
-  grid-area: 6/3/7/4;
-}
-.pike .ten .heart-6, .pike .ten .heart-7, .pike .ten .heart-8, .pike .ten .heart-9, .pike .ten .heart-10 {
-  transform: rotate(180deg);
-}
-.pike .id-10 {
-  font-size: 25px;
-}
-.pike .jack {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .jack .heart-1 {
-  font-size: 155px;
-}
-.pike .queen {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .queen .heart-1 {
-  font-size: 155px;
-}
-.pike .king {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .king .heart-1 {
-  font-size: 155px;
-}
-.pike .ace {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.pike .ace .heart-1 {
-  font-size: 155px;
 }
 
-.diamands {
-  /*7*/
-  /* 8 */
-  /*9*/
-  /*Jack*/
-  /*Queen*/
-  /*King*/
-  /*King*/
-}
-.diamands .card {
-  width: 150px;
-  height: 250px;
-}
-.diamands .card__back {
-  display: grid;
-  grid-template-columns: 25px 100px 25px;
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .card__back .card__back--item-1 {
-  grid-area: 1/1/2/2;
-}
-.diamands .card__back .card__back--item-2 {
-  grid-area: 1/2/4/3;
-}
-.diamands .card__back .card__back--item-3 {
-  grid-area: 3/3/4/4;
-}
 .diamands .card__back--item-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   color: #ffffff;
-  font-size: 35px;
-  font-family: "Didact Gothic", sans-serif;
 }
 .diamands .card__back--item-1::after,
 .diamands .card__back--item-3::after {
@@ -880,230 +451,10 @@ body {
   font-size: 15px;
 }
 .diamands .card__back--item-3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transform: rotate(180deg);
   color: #ffffff;
-  font-size: 35px;
-  font-family: "Didact Gothic", sans-serif;
 }
 .diamands .card__back--item-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(3, 83px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   color: #ff0000;
-  font-size: 45px;
-  align-items: center;
-  justify-items: center;
-}
-.diamands .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.diamands .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.diamands .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.diamands .heart-4 {
-  grid-area: 2/1/3/2;
-}
-.diamands .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.diamands .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.diamands .seven {
-  display: grid;
-  grid-template-columns: repeat(3, 33px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .seven .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.diamands .seven .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.diamands .seven .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.diamands .seven .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.diamands .seven .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.diamands .seven .heart-6 {
-  grid-area: 4/1/5/2;
-}
-.diamands .seven .heart-7 {
-  grid-area: 4/3/5/4;
-}
-.diamands .seven .heart-4, .diamands .seven .heart-5, .diamands .seven .heart-6, .diamands .seven .heart-7 {
-  transform: rotate(180deg);
-}
-.diamands .eight {
-  display: grid;
-  grid-template-columns: repeat(2, 50px);
-  grid-template-rows: repeat(4, 62px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .eight .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.diamands .eight .heart-2 {
-  grid-area: 1/2/2/3;
-}
-.diamands .eight .heart-3 {
-  grid-area: 2/1/3/2;
-}
-.diamands .eight .heart-4 {
-  grid-area: 2/2/3/3;
-}
-.diamands .eight .heart-5 {
-  grid-area: 3/1/4/2;
-}
-.diamands .eight .heart-6 {
-  grid-area: 3/2/4/3;
-}
-.diamands .eight .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.diamands .eight .heart-8 {
-  grid-area: 4/2/5/3;
-}
-.diamands .eight .heart-5, .diamands .eight .heart-6, .diamands .eight .heart-7, .diamands .eight .heart-8 {
-  transform: rotate(180deg);
-}
-.diamands .nine {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(5, 50px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.diamands .nine .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.diamands .nine .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.diamands .nine .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.diamands .nine .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.diamands .nine .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.diamands .nine .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.diamands .nine .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.diamands .nine .heart-8 {
-  grid-area: 5/1/6/2;
-}
-.diamands .nine .heart-9 {
-  grid-area: 5/3/6/4;
-}
-.diamands .nine .heart-6, .diamands .nine .heart-7, .diamands .nine .heart-8, .diamands .nine .heart-9 {
-  transform: rotate(180deg);
-}
-.diamands .ten {
-  display: grid;
-  grid-template-columns: repeat(3, 30px);
-  grid-template-rows: repeat(6, 42px);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  justify-content: center;
-}
-.diamands .ten .heart-1 {
-  grid-area: 1/1/2/2;
-}
-.diamands .ten .heart-2 {
-  grid-area: 1/3/2/4;
-}
-.diamands .ten .heart-3 {
-  grid-area: 2/2/3/3;
-}
-.diamands .ten .heart-4 {
-  grid-area: 3/1/4/2;
-}
-.diamands .ten .heart-5 {
-  grid-area: 3/3/4/4;
-}
-.diamands .ten .heart-6 {
-  grid-area: 4/3/5/4;
-}
-.diamands .ten .heart-7 {
-  grid-area: 4/1/5/2;
-}
-.diamands .ten .heart-8 {
-  grid-area: 5/2/6/3;
-}
-.diamands .ten .heart-9 {
-  grid-area: 6/1/7/2;
-}
-.diamands .ten .heart-10 {
-  grid-area: 6/3/7/4;
-}
-.diamands .ten .heart-6, .diamands .ten .heart-7, .diamands .ten .heart-8, .diamands .ten .heart-9, .diamands .ten .heart-10 {
-  transform: rotate(180deg);
-}
-.diamands .id-10 {
-  font-size: 25px;
-}
-.diamands .jack {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .jack .heart-1 {
-  font-size: 155px;
-}
-.diamands .queen {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .queen .heart-1 {
-  font-size: 155px;
-}
-.diamands .king {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .king .heart-1 {
-  font-size: 155px;
-}
-.diamands .ace {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-.diamands .ace .heart-1 {
-  font-size: 155px;
 }
 
 /*KEYFRAMES*/
@@ -1117,7 +468,7 @@ body {
 }
 .card .flip-card-inner {
   animation: rotate ease alternate infinite;
-  animation-duration: 5s;
+  animation-duration: 3s;
 }
 
 #id-1 .flip-card-inner {
@@ -1300,22 +651,24 @@ body {
   border: 2px solid rgb(196, 20, 20);
   border-radius: 15px;
   background-color: #000000;
-  width: 150px;
-  height: 250px;
+  width: 120px;
+  height: 200px;
   background: rgb(252, 70, 107);
   background: radial-gradient(circle, rgb(252, 70, 107) 9%, rgb(0, 0, 0) 71%);
 }
 
 @media only screen and (min-width: 730px) {
   .container {
-    min-width: 73px;
     padding: 0;
     margin: 0 auto;
   }
   .game-cards {
+    padding-top: 25px;
+    padding-bottom: 25px;
     display: grid;
-    grid-template-columns: repeat(3, 200px);
-    justify-items: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 120px);
+    column-gap: 15px;
     justify-content: center;
   }
 }
@@ -1324,14 +677,17 @@ body {
     background-color: rgb(35, 105, 105);
   }
   .container {
-    min-width: 930px;
-    padding: 0;
+    min-width: 1170px;
+    padding: 0 15px;
     margin: 0 auto;
   }
   .game-cards {
+    padding-top: 25px;
+    padding-bottom: 25px;
     display: grid;
-    grid-template-columns: repeat(4, 200px);
-    justify-items: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(6, 120px);
+    column-gap: 15px;
     justify-content: center;
   }
 }
